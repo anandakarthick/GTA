@@ -3,7 +3,7 @@ require_once('../login/configi.php');
 session_start();
 $studentId = $_SESSION['sid'];
 
-$query = "SELECT *  FROM `question_paper_mapping` WHERE `student_id` =$studentId  AND DATE(created_at)=DATE(NOW())";
+$query = "SELECT *  FROM `question_paper_mapping` WHERE `student_id` =$studentId  AND DATE(created_at) <= DATE(NOW())";
 $result = $mysqli->query($query);
 // echo "SELECT *  FROM `question_paper_mapping` WHERE `student_id` =$studentId  AND DATE(created_at)=DATE(NOW())";exit;
 if ($result->num_rows > 0) {
